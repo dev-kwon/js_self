@@ -40,5 +40,19 @@ function forOfLoop(){
 
 // forLoop()
 // forInLoop()
-forOfLoop()
+// forOfLoop()
 
+
+// Local Variable & global variable
+// let과 var의 차이점은 단순 재할당 재선언 뿐이 아닌 전역변수와 아니냐의 차이도 존재한다.
+// 즉, let은 전역변수가 아니므로 window 객체에 담기지 않는다.
+
+var num = 10;
+
+function globalNum(){
+    var num = 20;
+    document.write("함수 내부에서 변수 num 값은 " + num + "입니다. <br>");
+    document.write("함수 내부에서 전역변수 num의 값은 " + window.num + " 입니다. <br>");
+}
+globalNum();
+document.write("함수 외부에서 num의 값은 " + num + "입니다.");
