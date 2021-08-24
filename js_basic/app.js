@@ -47,12 +47,35 @@ function forOfLoop(){
 // let과 var의 차이점은 단순 재할당 재선언 뿐이 아닌 전역변수와 아니냐의 차이도 존재한다.
 // 즉, let은 전역변수가 아니므로 window 객체에 담기지 않는다.
 
-var num = 10;
+//var num = 10;
 
 function globalNum(){
     var num = 20;
     document.write("함수 내부에서 변수 num 값은 " + num + "입니다. <br>");
     document.write("함수 내부에서 전역변수 num의 값은 " + window.num + " 입니다. <br>");
 }
-globalNum();
-document.write("함수 외부에서 num의 값은 " + num + "입니다.");
+// globalNum();
+// document.write("함수 외부에서 num의 값은 " + num + "입니다.");
+
+function Dog(color, name, age){
+    this.color = color;
+    this.name = name;
+    this.age = age;
+}
+
+var myDog = new Dog("흰색", "마루", 1);
+myDog.family = "시베리안 허스키";
+myDog.breed = function(){
+    return this.color + " " + this.family;
+}
+document.write("우리 집 강아지는 " + myDog.breed() + "입니다. <br>");
+delete myDog.family;
+document.write("우리 집 강아지는 " + myDog.breed() + "입니다. <br>");
+
+document.write(Object.keys(myDog) + "<br>");
+document.write(Object.getOwnPropertyNames(myDog) + "<br>");
+
+var date = new Date();
+
+document.write("현재 시간은 : " + date.getHours() + "시" + date.getMinutes() + "분" + date.getTime() + "초");
+
